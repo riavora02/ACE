@@ -1,5 +1,4 @@
-{% include 'usersnew/navbar.html' %}
-{% include 'usersnew/alarm.html' %}
+{% include 'usersnew/navbaruser.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html>
@@ -10,37 +9,27 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'usersnew/styles.css'%}">
 
-	<title>Admin Home</title>
+
+	<title>Home</title>
 
 </head>
 <body>
 
-<h2 class="center3"> Welcome {{e}} ! <h2>
-<form action= "{% url 'users-new' %}">
+	<h1 class="homecenter"> Welcome to the Automatic Car Entry Module System! <h1>
+
     <div class="center">
-		<button type="submit" class="btn btn-outline-primary btn-lg reglength">New Requests</button>
-	</div>
-</form>
+	    <img src="{% static 'usersnew/logo.png' %}" height="500" width="500">
 
-<form action= "{% url 'users-all' %}">
-	<div class="center2">
-		<button type="submit" class="btn btn-outline-success btn-lg reglength">  All Users  </button>
-	</div>
-</form>
+	<form action = "{% url 'users-signup' %}">
+		<button type="submit" class="btn btn-outline-success btn-lg signupform" > Sign Up Now</button>
+	</form>
 
-<form action= "{% url 'users-logout' %}">
-	<div class="center4">
-		<button type="submit" class="btn btn-outline-light loglength my-2 my-sm-0"> Log Out </button>
 	</div>
-</form>
 
 </body>
 </html>
-
-
-
 

@@ -9,30 +9,31 @@ import pandas
 import ast 
 
 # Use a service account
-cred = credentials.Certificate('aceseniorproject-a4727-firebase-adminsdk-wfz5j-6382966246.json')
+cred = credentials.Certificate('ace-database-d7458-firebase-adminsdk-vdocy-211646616e.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
 # Create your views here.
 
 config = {
-	'apiKey': "AIzaSyAdvU-RuyH54gMBS7fBVsd_bGeW0csYn30",
-	'authDomain': "aceseniorproject-a4727.firebaseapp.com",
-	'databaseURL': "https://aceseniorproject-a4727.firebaseio.com",
-	'projectId': "aceseniorproject-a4727",
-	'storageBucket': "aceseniorproject-a4727.appspot.com",
-	'messagingSenderId': "251073104111",
-	'appId': "1:251073104111:web:231df9085c8237e02eb31a",
-	'measurementId': "G-WX7KRG41WW",
-  };
+  "apiKey": "AIzaSyDiKcH45hbm6pZMMM7rae_pHupB4gzbsE4",
+  "authDomain": "ace-database-d7458.firebaseapp.com",
+  "databaseURL": "https://ace-database-d7458.firebaseio.com",
+  "projectId": "ace-database-d7458",
+  "storageBucket": "ace-database-d7458.appspot.com",
+  "messagingSenderId": "359861837278",
+  "appId": "1:359861837278:web:8013d78f77b42d48f3914f",
+  "measurementId": "G-FY47QSVC83"
+};
 
 firebase = pyrebase.initialize_app(config)
 authorization = firebase.auth();
+	
 
 def signin(request):
 	return render(request, 'usersnew/signin.html')
 
-def home(request):
+def postsignin(request):
 	email = request.POST.get('email')
 	passw = request.POST.get("password")
 
@@ -44,6 +45,9 @@ def home(request):
 		return render(request, 'usersnew/signin.html', {"error": message})
 
 	return render(request, 'usersnew/home.html', {"e": email})
+
+def home(request):
+	return render(request, 'usersnew/home.html')
 
 def new(request):
 	users = []
@@ -67,13 +71,13 @@ def all(request):
 
 def logout(request):
 	auth.logout(request)
-	return render(request, 'usersnew/signin.html')
+	return render(request, 'usersnew/userhome.html')
 
 def approve(request):
 
-	name = str(request.POST.get("person"))
+	license = str(request.POST.get("license"))
 
-	approved = db.collection(u'users').document(name).update(
+	approved = db.collection(u'users').document(license).update(
 	{ u'Status': 'Approved' })
 
 	users = []
@@ -87,9 +91,9 @@ def approve(request):
 
 def deny(request):
 
-	name = str(request.POST.get("person"))
+	license = str(request.POST.get("license"))
 
-	approved = db.collection(u'users').document(name).update(
+	approved = db.collection(u'users').document(license).update(
 	{ u'Status': 'Denied' })
 
 	users = []
@@ -109,11 +113,31 @@ def postsignup(request):
 	make = request.POST.get('Make')
 	license = request.POST.get('License')
 
-	approved = db.collection(u'users').document(name).set(
+	approved = db.collection(u'users').document(license).set(
 	{ u'Name': name, 
 	  u'Make': make,
 	  u'License': license,
 	  u'Status': "Pending"})
 
-	return render(request, 'usersnew/signin.html')
+	return render(request, 'usersnew/userhome.html')
+
+def userhome(request):
+	return render(request, 'usersnew/userhome.html')
+
+def about(request):
+	return render(request, 'usersnew/about.html')
+
+def alarm(request):
+	alarm = "alarm"
+	return render(request, 'usersnew/home.html', {"alarm": alarm})
+
+# Create a callback on_snapshot function to capture changes
+#def on_snapshot(doc_snapshot, changes, read_time):
+    #for doc in doc_snapshot:
+        #print(u'Received document snapshot: {}'.format(doc.id))
+
+#doc_ref = db.collection(u'users').document(u'LA')
+
+# Watch the document
+#doc_watch = doc_ref.on_snapshot(on_snapshot)
 

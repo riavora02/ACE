@@ -1,0 +1,55 @@
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-messaging.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDiKcH45hbm6pZMMM7rae_pHupB4gzbsE4",
+        authDomain: "ace-database-d7458.firebaseapp.com",
+        databaseURL: "https://ace-database-d7458.firebaseio.com",
+        projectId: "ace-database-d7458",
+        storageBucket: "ace-database-d7458.appspot.com",
+        messagingSenderId: "359861837278",
+        appId: "1:359861837278:web:8013d78f77b42d48f3914f",
+        measurementId: "G-FY47QSVC83"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      db = firebase.firestore();
+
+      db.collection("users").doc("alarm").onSnapshot(function(doc){
+
+        var data = doc.data();
+        var license = data.license;
+        var alarm = data.value;
+        console.log(data);
+
+        if (alarm == true){
+            alert("Alarm has been triggered by: " + String(license));
+
+            db.collection("users").doc("alarm").set({
+                value: false,
+                license: "000000"
+                })
+
+                .then(function() {
+                    console.log("Document successfully written!");
+                })
+                .catch(function(error) {
+                    console.error("Error writing document: ", error);
+            });
+
+         }
+
+    });
+
+    </script>

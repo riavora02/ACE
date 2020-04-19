@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,64 +10,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
     <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+   	<link rel="stylesheet" href="{% static 'usersnew/styles.css'%}">
 
-	<title>Signin</title>
-
-	<style>
-
-	.center {
-	  margin: 0;
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  -ms-transform: translate(-50%, -70%);
-	  transform: translate(-50%, -70%);
-	}
-
-	.center2 {
-	  margin: 0;
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  -ms-transform: translate(-50%, 70%);
-	  transform: translate(-50%, 70%);
-	}
-
-	.center3 {
-	  margin: 0;
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  -ms-transform: translate(-50%, 300%);
-	  transform: translate(-50%, 300%);
-	}
-
-	h1{
-		color: red;
-		font-family: 'Comfortaa';
-		font-size: 20px;
-	}
-
-	button{
-		width: 300px;
-	}
-	
-	</style>
+	<title>Admin Sign In</title>
 
 </head>
 <body>
-	<!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
+	<h1 class="h1center" style="color:red"> Please sign in with your Admin Credentials to continue: </h1>
     {% if error %}
-		<h1 class="center3"> {{error}} </h1>
+		<h3 class="center3 h3"> {{error}} </h3>
 	{% endif %}
 
     <div class="center">
-	    <form action = "{% url 'users-home' %}" method="post">
+	    <form action = "{% url 'users-postsignin' %}" method="post">
 	    {% csrf_token %}
 		  <div class="form-group">
 		    <label for="exampleInputEmail1">Email address</label>
@@ -77,12 +33,9 @@
 		    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name = "password">
 		  </div>
 		
-		  <button type="submit" class="btn btn-outline-primary btn-lg" >Submit</button>
+		  <button type="submit" class="btn btn-outline-primary btn-lg reglength" >Submit</button>
 		  <br>
 		  <br>
-		</form>
-		<form action = "{% url 'users-signup' %}">
-		<button type="submit" class="btn btn-outline-success btn-lg" >New User? Sign Up</button>
 		</form>
 	</div>
 

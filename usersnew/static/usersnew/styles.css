@@ -1,0 +1,162 @@
+body {
+		font-family: 'Comfortaa';
+		font-size: 20px;
+	}
+	
+
+p {
+		font-size: 20px;
+		text-align: center ;
+		margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, -50%);
+	  	transform: translate(-50%, -50%);
+	}
+ 
+h1{
+        text-align: center;
+        font-family: 'Comfortaa';
+        font-size: 30px;
+
+    }
+
+
+h2{
+		color: black;
+		font-family: 'Comfortaa';
+		font-size: 20px;
+	}
+
+.h3{
+		color: red;
+		font-family: 'Comfortaa';
+		font-size: 30px;
+	}
+
+.bodytext{
+        font-family: 'Comfortaa';
+        font-size: 16px;
+
+    }
+
+.h1center {
+		margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, -800%);
+	  	transform: translate(-50%, -800%);
+	}
+
+.btn{
+        font-family: 'Comfortaa';
+        font-size: 20px;
+        font-color: blue;
+    }
+
+.center4 {
+      	margin: 10px;
+      	position: absolute;
+      	top: 0;
+      	right: 0;
+    }
+    
+.loglength{
+        width: 150px;
+    }
+
+.center {
+	  	margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, -50%);
+	  	transform: translate(-50%, -50%);
+	}
+
+.center2 {
+	  	margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, 70%);
+	  	transform: translate(-50%, 70%);
+	}
+
+.center3 {
+	  	margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, -600%);
+	  	transform: translate(-50%, -600%);
+	}
+
+.center4 {
+	  	margin: 10px;
+	  	position: absolute;
+	  	top: 0;
+	  	right: 0;
+	}
+
+.center5 {
+	  margin: 0;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  -ms-transform: translate(-50%, -40%);
+	  transform: translate(-50%, -40%);
+	}
+
+.reglength{
+		width: 300px;
+	}
+
+.textsize{
+		font-size: 20px;
+}
+
+.disp{
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 97%;
+        -ms-transform: translate(-100%, -70%);
+        transform: translate(-100%, -70%)
+    }
+
+.style2{
+        display: inline;
+        width: 100%;
+        text-align: right;
+    }
+
+
+.signupform{
+		width: 500px;
+	}
+
+.plocation{
+		font-size: 18px;
+		text-align: center ;
+		margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, -400%);
+	  	transform: translate(-50%, -400%);
+	}
+	
+.homecenter{
+		font-size: 30px;
+		text-align: center ;
+		margin: 0;
+	  	position: absolute;
+	  	top: 50%;
+	  	left: 50%;
+	  	-ms-transform: translate(-50%, -1000%);
+	  	transform: translate(-50%, -1000%);
+	}
+
