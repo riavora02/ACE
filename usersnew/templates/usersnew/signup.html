@@ -9,16 +9,18 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    
-    <link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
-    <link rel="stylesheet" href="{% static 'usersnew/styles.css'%}">
 
+	<link href='https://fonts.googleapis.com/css?family=Comfortaa' rel='stylesheet'>
+
+    <link rel="stylesheet" href="{% static 'usersnew/styles.css'%}">
 
 	<title>Sign Up</title>
 
-	<style>
-
-	</style>
+	<style type="text/css">
+        body{
+            font-family: Comfortaa;
+        }
+    </style>
 
 </head>
 <body>
@@ -38,7 +40,33 @@
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputPassword1">Make</label>
-		    <input type="make" class="form-control" id="exampleInputPassword1" placeholder="Enter Car Make" name = "Make">
+		    <select type="make" class="form-control" id="exampleInputPassword1" placeholder="Enter Car Make" name = "Make">
+		    	<option>Enter Car Make: </option>
+		    	<option>Acura</option>
+		    	<option>Audi</option>
+		    	<option>BMW</option>
+		    	<option>Buick</option>
+		    	<option>Cadillac</option>
+		    	<option>Chevrolet</option>
+		    	<option>Dodge</option>
+		    	<option>Ford</option>
+		    	<option>GMC</option>
+		    	<option>Honda</option>
+		    	<option>Hyundai</option>
+		    	<option>Infiniti</option>
+		    	<option>Jaguar</option>
+		    	<option>Jeep</option>
+		    	<option>Kia</option>
+		    	<option>Lexus</option>
+		    	<option>Mazda</option>
+		    	<option>Mercedes</option>
+		    	<option>Nissan</option>
+		    	<option>Subaru</option>
+		    	<option>Tesla</option>
+		    	<option>Toyota</option>
+		    	<option>Volvo</option>
+		    	<option>Other</option>
+		    </select>
 		  </div>
 		  <div class="form-group">
 		    <label for="exampleInputPassword1">License</label>
@@ -47,7 +75,27 @@
 		  <button type="submit" class="btn btn-outline-primary btn-lg signupform">Sign Up</button>
 		</form>
 	</div>
+ 
 
+	{% if messages %}
+	<p class="messages">
+    {% for message in messages %}
+	    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+		    <div class="alert alert-success alert-dismissible fade show" role="alert">
+		  	{{message}}
+		  	 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  			</button>
+		  	</div>
+		</p>
+    {% endfor %}
+	</p>
+	{% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
 </body>
 </html>
 

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib import auth
+from django.contrib import messages
 import pyrebase
 import firebase_admin
 from firebase_admin import credentials
@@ -41,8 +42,9 @@ def postsignin(request):
 		user = authorization.sign_in_with_email_and_password(email, passw)
 
 	except: 
-		message = "Invalid Credentials"
-		return render(request, 'usersnew/signin.html', {"error": message})
+		#message = "Invalid Credentials"
+		messages.success(request, "Invalid Credentials")
+		return render(request, 'usersnew/signin.html')
 
 	return render(request, 'usersnew/home.html', {"e": email})
 
@@ -119,7 +121,9 @@ def postsignup(request):
 	  u'License': license,
 	  u'Status': "Pending"})
 
-	return render(request, 'usersnew/userhome.html')
+	messages.success(request, "Account has been created")
+
+	return render(request, 'usersnew/signup.html')
 
 def userhome(request):
 	return render(request, 'usersnew/userhome.html')

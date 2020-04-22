@@ -34,8 +34,9 @@
         console.log(data);
 
         if (alarm == true){
-            alert("Alarm has been triggered by: " + String(license));
+            var r = confirm("Alarm has been triggered by: " + String(license));
 
+            if (r == true){
             db.collection("users").doc("alarm").set({
                 value: false,
                 license: "000000"
@@ -48,7 +49,8 @@
                     console.error("Error writing document: ", error);
             });
 
-         }
+        }
+     }
 
     });
 
